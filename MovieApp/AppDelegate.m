@@ -124,4 +124,20 @@
     }
 }
 
+#pragma mark NSURLConnection Delegate Methods
+
++(NSURLConnection *) initiateURLConnection:(NSURL *)jsonUrl{
+    // Create the request.
+    NSURLRequest *request = [NSURLRequest requestWithURL:jsonUrl];
+    
+    // Create url connection and fire request
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    [conn start];
+    [conn scheduleInRunLoop:[NSRunLoop mainRunLoop]
+                    forMode:NSDefaultRunLoopMode];
+    
+    return conn;
+}
+
+
 @end

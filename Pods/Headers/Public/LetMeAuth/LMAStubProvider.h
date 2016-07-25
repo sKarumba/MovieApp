@@ -1,0 +1,1 @@
+../../../LetMeAuth/Pod/LMAStubProvider.h
