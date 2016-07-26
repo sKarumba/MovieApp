@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFNetworking.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,22 +62,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>928353533005A4198EBDA5B700D37B64</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9A7B3EC56C791BE78C1EFE569A1CEA3A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DF3B3A6FD6A4B7CD3C5B62D199B78C19</key>
+		<key>B808F44A9486E8606FD047F0A366139B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FEB832FFAD8D6BBC8CA6E009833BECE3</key>
+		<key>DF3B3A6FD6A4B7CD3C5B62D199B78C19</key>
 		<dict>
 			<key>primary</key>
 			<true/>

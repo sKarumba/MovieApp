@@ -7,8 +7,8 @@ target 'MovieApp' do
 
   # Pods for MovieApp
   pod 'LetMeAuth-FacebookSDK-iOS', '~> 2.0'
-  pod 'AFNetworking', '~> 3.1'
-  pod 'JSONKit', '~> 1.4'
+#  pod 'AFNetworking', '~> 3.1'
+#  pod 'JSONKit', '~> 1.4'
 
   target 'MovieAppTests' do
     inherit! :search_paths

@@ -17,9 +17,10 @@
 
 @property(nonatomic,retain) AppDelegate *delegate;
 
--(NSMutableArray *) selectFromJson:(NSString *)title;
+-(NSMutableArray *) selectFromJson:(NSString *)searchParam;
 +(NSString *) baseAPIUrl;
--(NSString *) getJsonDataString:(NSString *)urlParam;
+-(NSString *) makeApiCall:(NSString *)parameter;
+- (NSData*) converResponseToDataStream: (NSString *) response;
 
 
 @end

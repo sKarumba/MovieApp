@@ -22,7 +22,7 @@
     self = [super init];
 
     if (self) {
-        self.title = [attributes objectForKey:kTitle];
+        self.title = [attributes objectForKey:@"Title"];
         self.year = [attributes objectForKey:kYear];
         self.poster = [attributes objectForKey:kPoster];
         self.type = [attributes objectForKey:kType];

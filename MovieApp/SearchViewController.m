@@ -8,6 +8,7 @@
 
 #import "SearchViewController.h"
 #import "Film.h"
+#import "DataService.h"
 
 @interface SearchViewController ()
 
@@ -15,6 +16,12 @@
 
 @implementation SearchViewController
 
+-(NSMutableArray *) masterFilmList{
+    if (_masterFilmList == nil) {
+        _masterFilmList = [[NSMutableArray alloc] init];
+    }
+    return _masterFilmList;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -45,8 +52,8 @@
     
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         DataService  *service = [[DataService alloc] init];
-        self.masterFilmList = [service selectFromJson:parameters];
-        
+        _masterFilmList = [service selectFromJson:parameters];
+//
         dispatch_async(dispatch_get_main_queue(), ^{
             
             
@@ -93,10 +100,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if ([self.masterFilmList count] == 0) {
+    if ([_masterFilmList count] == 0) {
         return 1; // a single cell to report no data
     }
-    return [self.masterFilmList count];
+    return [_masterFilmList count];
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
