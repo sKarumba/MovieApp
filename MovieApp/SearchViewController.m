@@ -8,7 +8,8 @@
 
 #import "SearchViewController.h"
 #import "Film.h"
-#import "DataService.h"
+#import "SearchDataService.h"
+#import "PreviewViewController.h"
 
 @interface SearchViewController ()
 
@@ -51,8 +52,8 @@
 -(void)fetchData: (NSString *)parameters{
     
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        DataService  *service = [[DataService alloc] init];
-        _masterFilmList = [service selectFromJson:parameters];
+        SearchDataService  *service = [[SearchDataService alloc] init];
+        _masterFilmList = [service getSearchedFilmFromAPI:parameters];
 //
         dispatch_async(dispatch_get_main_queue(), ^{
             
@@ -135,6 +136,21 @@
     
     return cell;
     
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    NSInteger index = [self.myTableView indexPathForSelectedRow].row;
+    
+    if ([segue.identifier isEqualToString:@"previewFilm"]){
+        [(PreviewViewController *)segue.destinationViewController setFilm:
+         [self objectInListAtIndex:
+          index]];
+    }
+}
+
+
+-(Film *)objectInListAtIndex: (NSUInteger)index{
+    return [_masterFilmList objectAtIndex:index];
 }
 
 
