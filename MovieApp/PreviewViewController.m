@@ -15,7 +15,7 @@
 
 @implementation PreviewViewController
 @synthesize film=_film, filmPreview=_filmPreview;
-@synthesize imgPoster=_imgPoster, lblTitle=_lblTitle;
+@synthesize imgPoster=_imgPoster, lblTitle=_lblTitle, lblDescription=_lblDescription;
 
 
 - (void)viewDidLoad {
@@ -24,11 +24,9 @@
     
     NSString *imdbID = _film.imdbID;
     
-    PreviewDataService *service = [[PreviewDataService alloc] init];
-    
     NSString *urlParameter = [@"i=" stringByAppendingString:imdbID];
     
-    _filmPreview = [service getFilmPreviewFromAPI:urlParameter];
+    [self fetchData:urlParameter];
     
     
 }
@@ -48,8 +46,27 @@
 }
 */
 
+-(void)fetchData:(NSString *)urlParameter{
+    
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+
+        PreviewDataService *service = [[PreviewDataService alloc] init];
+        
+        _filmPreview = [service getFilmPreviewFromAPI:urlParameter];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self designUI:_filmPreview];
+            [self.view reloadInputViews];
+        });
+    });
+    
+
+}
+
 -(void) designUI:(PreviewFilm *)preview{
-    _lblTitle.text = preview.title;
+    _lblTitle.text = [@"Title: " stringByAppendingString:preview.title];
+    [_lblDescription setText:preview.plot];
+    
     _imgPoster.image = [UIImage imageNamed:@"newapp-icon"];
 
     // download the image asynchronously

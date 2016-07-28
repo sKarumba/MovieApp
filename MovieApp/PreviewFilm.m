@@ -35,7 +35,7 @@ static NSMutableArray *_bookmark;
     
     if (self){
         
-        self.rated =[attributes objectForKey:kTitle];
+        self.title =[attributes objectForKey:kTitle];
         self.rated =[attributes objectForKey:kRated];
         self.released =[attributes objectForKey:kReleased];
         self.runtime =[attributes objectForKey:kRuntime];

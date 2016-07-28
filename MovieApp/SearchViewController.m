@@ -100,10 +100,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    if ([_masterFilmList count] == 0) {
-        return 1; // a single cell to report no data
-    }
+//    // Return the number of rows in the section.
+//    if ([_masterFilmList count] == 0) {
+//        return 1; // a single cell to report no data
+//    }
     return [_masterFilmList count];
 }
 
