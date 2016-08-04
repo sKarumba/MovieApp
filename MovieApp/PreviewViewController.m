@@ -9,20 +9,36 @@
 #import "PreviewViewController.h"
 #import "PreviewDataService.h"
 
+
 @interface PreviewViewController ()
 
 @end
 
 @implementation PreviewViewController
-@synthesize film=_film, filmPreview=_filmPreview;
+@synthesize film=_film, filmPreview=_filmPreview, filmSaved = _filmSaved;
+
 @synthesize imgPoster=_imgPoster, lblTitle=_lblTitle, lblDescription=_lblDescription;
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    //core data
+    //1
+    AppDelegate* appDelegate = [UIApplication sharedApplication].delegate;
+    //2
+    self.managedObjectContext = appDelegate.managedObjectContext;
     
-    NSString *imdbID = _film.imdbID;
+    NSString *imdbID;
+    if (_film != nil) {
+        
+        imdbID = _film.imdbID;
+
+    }else{
+        imdbID = _filmSaved.imdbID;
+
+    }
     
     NSString *urlParameter = [@"i=" stringByAppendingString:imdbID];
     
@@ -84,22 +100,32 @@
     
 }
 
-- (void)downloadImageWithURL:(NSURL *)url completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock
-{
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+- (IBAction)bookmarkFilm:(id)sender {
+    // Add Entry to PhoneBook Data base and reset all fields
+    //  1
+    Movie * newEntry = [NSEntityDescription insertNewObjectForEntityForName:@"Movie" inManagedObjectContext:self.managedObjectContext];
     
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                               
-                               if ( !error ){
-                                   UIImage *image = [[UIImage alloc] initWithData:data];
-                                   completionBlock(YES,image);
-                               } else{
-                                   completionBlock(NO,nil);
-                               }
-                           }];
+    //  2
+    
+    newEntry.title = self.film.title;
+    newEntry.imdbID = self.film.imdbID;
+    newEntry.type = self.film.type;
+    newEntry.poster = self.film.poster;
+    
+    
+    //  3
+    NSError *error;
+    Boolean isSaved = [self.managedObjectContext save:&error];
+    if (!isSaved) {
+        NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+    }else{
+        
+        UIAlertView* alert;
+        alert = [[UIAlertView alloc] initWithTitle:@"Bookmark Film" message:@"Film saved successfully..." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+        [alert show];
+    }
 }
+
 
 
 @end

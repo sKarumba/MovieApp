@@ -20,7 +20,7 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-
+-(NSMutableArray*) getAllBookmarkedFilms;
 
 + (NSURLConnection*)initiateURLConnection:(NSURL*)jsonUrl;
 

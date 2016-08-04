@@ -16,6 +16,8 @@
 		739BA5CE1D49D6110022D8A4 /* PreviewFilm.m in Sources */ = {isa = PBXBuildFile; fileRef = 739BA5CD1D49D6110022D8A4 /* PreviewFilm.m */; };
 		739BA5D11D49D73B0022D8A4 /* PreviewDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 739BA5D01D49D73B0022D8A4 /* PreviewDataService.m */; };
 		739BA5D41D49E0070022D8A4 /* BaseDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 739BA5D31D49E0070022D8A4 /* BaseDataService.m */; };
+		73BA1D7A1D530ABB0051729A /* BookmarkedFilmsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BA1D791D530ABB0051729A /* BookmarkedFilmsListViewController.m */; };
+		73BA1D801D5317B40051729A /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BA1D7F1D5317B40051729A /* Movie.m */; };
 		73C61BB71D40F0F100AA37F0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C61BB61D40F0F100AA37F0 /* main.m */; };
 		73C61BBA1D40F0F100AA37F0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C61BB91D40F0F100AA37F0 /* AppDelegate.m */; };
 		73C61BBD1D40F0F100AA37F0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C61BBC1D40F0F100AA37F0 /* ViewController.m */; };
@@ -25,6 +27,7 @@
 		73C61BC81D40F0F100AA37F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73C61BC61D40F0F100AA37F0 /* LaunchScreen.storyboard */; };
 		73C61BD31D40F0F100AA37F0 /* MovieAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C61BD21D40F0F100AA37F0 /* MovieAppTests.m */; };
 		73C61BDE1D40F0F100AA37F0 /* MovieAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73C61BDD1D40F0F100AA37F0 /* MovieAppUITests.m */; };
+		73F94BAF1D50750E0002A724 /* BaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73F94BAE1D50750E0002A724 /* BaseController.m */; };
 		98EBC74120671AAADB13F3AD /* libPods-MovieApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7258E983E541624F7394CB1C /* libPods-MovieApp.a */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +71,10 @@
 		739BA5D01D49D73B0022D8A4 /* PreviewDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewDataService.m; sourceTree = "<group>"; };
 		739BA5D21D49E0070022D8A4 /* BaseDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDataService.h; sourceTree = "<group>"; };
 		739BA5D31D49E0070022D8A4 /* BaseDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDataService.m; sourceTree = "<group>"; };
+		73BA1D781D530ABB0051729A /* BookmarkedFilmsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkedFilmsListViewController.h; sourceTree = "<group>"; };
+		73BA1D791D530ABB0051729A /* BookmarkedFilmsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkedFilmsListViewController.m; sourceTree = "<group>"; };
+		73BA1D7E1D5317B40051729A /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		73BA1D7F1D5317B40051729A /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		73C61BB21D40F0F100AA37F0 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73C61BB61D40F0F100AA37F0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		73C61BB81D40F0F100AA37F0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,6 +92,8 @@
 		73C61BD91D40F0F100AA37F0 /* MovieAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73C61BDD1D40F0F100AA37F0 /* MovieAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieAppUITests.m; sourceTree = "<group>"; };
 		73C61BDF1D40F0F100AA37F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73F94BAD1D50750E0002A724 /* BaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseController.h; sourceTree = "<group>"; };
+		73F94BAE1D50750E0002A724 /* BaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseController.m; sourceTree = "<group>"; };
 		951D18C5A74A1D1FE10B9FBE /* Pods-MovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieApp/Pods-MovieApp.release.xcconfig"; sourceTree = "<group>"; };
 		E8187C834437C2535BE313A0 /* Pods-MovieAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieAppUITests/Pods-MovieAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -137,6 +146,10 @@
 				73110CE31D411B6B009DA5C7 /* SearchViewController.m */,
 				739BA5BE1D41F13D0022D8A4 /* PreviewViewController.h */,
 				739BA5BF1D41F13D0022D8A4 /* PreviewViewController.m */,
+				73F94BAD1D50750E0002A724 /* BaseController.h */,
+				73F94BAE1D50750E0002A724 /* BaseController.m */,
+				73BA1D781D530ABB0051729A /* BookmarkedFilmsListViewController.h */,
+				73BA1D791D530ABB0051729A /* BookmarkedFilmsListViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -144,6 +157,9 @@
 		739BA5C51D41F8DD0022D8A4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				73BA1D7E1D5317B40051729A /* Movie.h */,
+				73BA1D7F1D5317B40051729A /* Movie.m */,
+				73C61BC11D40F0F100AA37F0 /* MovieApp.xcdatamodeld */,
 				739BA5CC1D49D6110022D8A4 /* PreviewFilm.h */,
 				739BA5CD1D49D6110022D8A4 /* PreviewFilm.m */,
 				739BA5C21D41F7F60022D8A4 /* Film.h */,
@@ -201,7 +217,6 @@
 				73C61BC41D40F0F100AA37F0 /* Assets.xcassets */,
 				73C61BC61D40F0F100AA37F0 /* LaunchScreen.storyboard */,
 				73C61BC91D40F0F100AA37F0 /* Info.plist */,
-				73C61BC11D40F0F100AA37F0 /* MovieApp.xcdatamodeld */,
 				73C61BB51D40F0F100AA37F0 /* Supporting Files */,
 			);
 			path = MovieApp;
@@ -507,14 +522,17 @@
 			files = (
 				73C61BBD1D40F0F100AA37F0 /* ViewController.m in Sources */,
 				73C61BBA1D40F0F100AA37F0 /* AppDelegate.m in Sources */,
+				73BA1D801D5317B40051729A /* Movie.m in Sources */,
 				739BA5C01D41F13D0022D8A4 /* PreviewViewController.m in Sources */,
 				739BA5CA1D4609D20022D8A4 /* SearchDataService.m in Sources */,
 				739BA5D11D49D73B0022D8A4 /* PreviewDataService.m in Sources */,
 				73C61BC31D40F0F100AA37F0 /* MovieApp.xcdatamodeld in Sources */,
 				73C61BB71D40F0F100AA37F0 /* main.m in Sources */,
+				73BA1D7A1D530ABB0051729A /* BookmarkedFilmsListViewController.m in Sources */,
 				73110CE41D411B6B009DA5C7 /* SearchViewController.m in Sources */,
 				739BA5CE1D49D6110022D8A4 /* PreviewFilm.m in Sources */,
 				739BA5D41D49E0070022D8A4 /* BaseDataService.m in Sources */,
+				73F94BAF1D50750E0002A724 /* BaseController.m in Sources */,
 				739BA5C41D41F7F60022D8A4 /* Film.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

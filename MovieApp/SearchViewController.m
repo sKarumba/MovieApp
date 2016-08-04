@@ -7,7 +7,6 @@
 //
 
 #import "SearchViewController.h"
-#import "Film.h"
 #import "SearchDataService.h"
 #import "PreviewViewController.h"
 
@@ -28,9 +27,24 @@
     // Do any additional setup after loading the view.
     
     _searchBar.text =@"star wars";
+    _searchBar.backgroundColor = [UIColor redColor];
+    [_searchBar isFirstResponder];
+    
+
     
     [self fetchData: [@"s=" stringByAppendingString:_searchBar.text]];
 
+    //create a tapgesture to release keyboard on tap
+    UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideKeyboard)];
+    [self.myTableView addGestureRecognizer:tap];
+    [tap setCancelsTouchesInView:NO];
+    [tap setDelaysTouchesEnded:NO];
+
+    
+}
+
+-(void)hideKeyboard{
+    [self.searchBar resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,13 +62,28 @@
 }
 */
 
+#pragma mark - search methods
+
+-(void) searchBarSearchButtonClicked: (UISearchBar *) mySearchBar{
+    
+    NSString * seachTerm = _searchBar.text;
+    
+    seachTerm = [seachTerm lowercaseString];
+    seachTerm = [seachTerm stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    [self fetchData: [@"s=" stringByAppendingString:seachTerm]];
+
+    [_searchBar resignFirstResponder];
+    
+}
+
 #pragma mark - request data source
 -(void)fetchData: (NSString *)parameters{
     
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         SearchDataService  *service = [[SearchDataService alloc] init];
         _masterFilmList = [service getSearchedFilmFromAPI:parameters];
-//
+        //
         dispatch_async(dispatch_get_main_queue(), ^{
             
             
@@ -68,25 +97,10 @@
         });
         
     });
-    
+
 }
 
-- (void)downloadImageWithURL:(NSURL *)url completionBlock:(void (^)(BOOL succeeded, UIImage *image))completionBlock
-{
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                               
-                               if ( !error ){
-                                   UIImage *image = [[UIImage alloc] initWithData:data];
-                                   completionBlock(YES,image);
-                               } else{
-                                   completionBlock(NO,nil);
-                               }
-                           }];
-}
+
 
 
 
